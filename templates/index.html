@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="data:;base64,=">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Amazon Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+      <a href = "/">
+        <h1 class="title">
+          Amazon Tracker
+        </h1>
+      </a>      
+      <p class="subtitle">
+        Resultados para <strong>{{search}}</strong>:
+      </p>
+
+
+      {% for result in final_list %}
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-128x128">
+            <img src={{result[4]}}>
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>{{result[0]}}</strong>
+              <br>
+              {{result[1]}} - {{result[2]}}
+              <br>
+              {{result[3]}}
+            </p>
+          </div>
+        </div>
+        <div class="media-right">
+          <button class="delete"></button>
+        </div>
+      </article>
+      {% endfor %}      
+    </div>
+  </section>
+  </body>
+</html>
