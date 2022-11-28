@@ -16,7 +16,7 @@
         </h1>
       </a>      
       <p class="subtitle">
-        Resultados para <strong>{{search}}</strong>:
+        Results for <strong>{{search}}</strong>:
       </p>
 
 
@@ -24,22 +24,24 @@
       <article class="media">
         <figure class="media-left">
           <p class="image is-128x128">
-            <img src={{result[4]}}>
+            <img src={{result.img}}>
           </p>
         </figure>
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>{{result[0]}}</strong>
+              <strong>{{result.title}}</strong>
               <br>
-              {{result[1]}} - {{result[2]}}
+              {{result.rate}} - {{result.review}}
               <br>
-              {{result[3]}}
+              {{result.price}}
             </p>
           </div>
         </div>
         <div class="media-right">
-          <button class="delete"></button>
+          <a href = "{{url_for('track', result_id = result.id)}}">
+            <button type="submit" value={{result.id}} class="button is-primary">Track</button>
+          </a>        
         </div>
       </article>
       {% endfor %}      
